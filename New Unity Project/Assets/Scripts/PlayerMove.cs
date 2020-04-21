@@ -9,14 +9,14 @@ public class PlayerMove : MonoBehaviour
     Rigidbody2D rigid;
     SpriteRenderer spriteRenderer;
     Animator animator;
-    AudioSource audiosource;
+    
 
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
-        audiosource = GetComponent<AudioSource>(); 
+        
     }
 
    void Update()
@@ -25,7 +25,7 @@ public class PlayerMove : MonoBehaviour
         {
             rigid.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
             animator.SetBool("jump", true);
-            audiosource.Play();
+            
         }
 
             if (Input.GetButtonUp("Horizontal"))
@@ -62,7 +62,7 @@ public class PlayerMove : MonoBehaviour
             {
                 if (rayHit.distance < 0.5f)
                     animator.SetBool("jump", false);
-            }
+            } 
 
         }
     }
